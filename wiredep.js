@@ -33,7 +33,7 @@ function wiredep(opts) {
     ('on-path-injected', opts.onPathInjected || function() {});
 
   config.set
-    ('bower.json', opts.bowerJson || JSON.parse($.fs.readFileSync($.path.join(cwd, './bower.json'))))
+    ('package.json', opts.bowerJson || JSON.parse($.fs.readFileSync($.path.join(cwd, './package.json'))))
     ('bower-directory', opts.directory || findBowerDirectory(cwd))
     ('cwd', cwd)
     ('dependencies', opts.dependencies === false ? false : true)
@@ -44,7 +44,7 @@ function wiredep(opts) {
     ('global-dependencies', helpers.createStore())
     ('ignore-path', opts.ignorePath)
     ('include-self', opts.includeSelf)
-    ('overrides', $._.extend({}, config.get('bower.json').overrides, opts.overrides))
+    ('overrides', $._.extend({}, config.get('package.json').overrides, opts.overrides))
     ('src', [])
     ('stream', opts.stream ? opts.stream : {});
 
@@ -101,7 +101,7 @@ function mergeFileTypesWithDefaults(optsFileTypes) {
 }
 
 function findBowerDirectory(cwd) {
-  var directory = $.path.join(cwd, ($['bower-config'].read(cwd).directory || 'bower_components'));
+  var directory = $.path.join(cwd, ($['bower-config'].read(cwd).directory || 'node_modules'));
 
   if (!$.fs.existsSync(directory)) {
     var error = new Error('Cannot find where you keep your Bower packages.');

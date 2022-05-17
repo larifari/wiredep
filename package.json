@@ -1,11 +1,11 @@
 {
-  "name": "wiredep",
-  "version": "4.0.0",
+  "name": "wiredep-npm",
+  "version": "5.0.0",
   "main": "./wiredep.js",
-  "description": "Wire Bower dependencies to your source code.",
+  "description": "Wire Bower dependencies to your source code - patched for using package.json & node_modules",
   "repository": "taptapship/wiredep",
   "author": {
-    "name": "Stephen Sawchuk",
+    "name": "Stephen Sawchuk, Larissa Naber",
     "email": "sawchuk@gmail.com"
   },
   "keywords": [
